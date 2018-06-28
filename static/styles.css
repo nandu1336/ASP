@@ -1,0 +1,221 @@
+body{
+	background-image: url(../images/america-analysis-business-926987.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	padding: 0px;
+	
+}
+header {
+	background-color:black; 
+	font-family: "Times New Roman";
+}
+header span{
+	margin-right: 43%
+}
+#navigator{
+	height: 22px;
+	padding: 0px;
+	margin-bottom: 5px;
+	margin-top: 0px;
+}
+#indicator{
+	height: 8px;
+	margin-top: 0px;
+}
+#id01{
+	background-attachment: fixed;
+	height: 100%;
+	width: 100%;
+}
+#logimg{
+	margin-top: 40px;
+	height: 128px;
+	width: 128px;
+	border-radius: 50px;
+	margin-left: 60px;
+}
+#loginform{
+	margin-top: 40px;
+	height: 450px;
+	width: 100%
+}
+#loginform form{
+	padding: 20px;
+}
+#loginform img{
+	
+	background-color: rgba(20,120,20,.8);
+	width: 150px;
+	height: 150px;
+	border-radius: 100px;
+	border:1px solid grey;
+}
+#newsbar,#categories{
+	margin-left: 25%;
+	margin-right: 25%;
+	height: 20px;
+}
+
+#posts{
+	width: 60%;
+	margin-left: 15%;
+	margin-top: 5px;
+	padding-top: 5px;
+	height: 1000px;
+	float: left;
+}
+#posts div{
+	width: 100%;
+	height: 10%;
+	margin-bottom: 1px;
+}
+#details{
+	width: 20%;
+	height: 300px;
+	margin-bottom: 10px;
+	float: right;
+	margin-right: 15px;
+	margin-top: 20px;
+	border-radius: 10px;
+	border:1px solid black;
+}
+#details div{
+	background-color: rgba(20,120,20,.8);
+	width: 150px;
+	height: 150px;
+	border-radius: 100px;
+	border:1px solid grey;
+	margin-left: 19%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 0px:;
+}
+#details img{
+	width: 100%;
+	height: 100%;
+}
+#details form{
+	margin-top: 25px;
+	margin-left: 15px;
+}
+#streams{
+	margin-top: 5px;
+	color: white;
+	background-color: rgba(250,15,125,1.0);
+}
+#streams div{
+	margin-left: 25%;
+	margin-right: 25%
+}
+#streams div a{
+	width: 80px;
+	margin-left: 2%;
+	margin-right: 4%;
+}
+hr{
+	height: 3px;
+	margin-top: 0px;
+	background-color: black;
+}
+#forum{
+	height: 1000px;
+	background-attachment: fixed;
+	width: 82%;
+	margin-left:0%;
+	margin-right: 0%;
+	margin-bottom: 10px;
+	float: left;
+}
+#threadmeta{
+	margin-top: 0px;
+	margin-right: 0px;
+}
+#sub{
+	float: left;
+	margin-left: 2px;
+}
+#threadmeta span{
+	margin-left: 49%;
+}
+#threadmeta span label{
+	margin-left: 22px;
+}
+#threadmeta table td{
+	margin-right: 20px;
+}
+#forum textarea{
+	display: inline;
+}
+#others{
+	float: right;
+	margin-right: 2px;
+}
+#personalonforum{
+	width: 17%;
+	height: 350px;
+	margin-bottom: 10px;
+	float: right;
+	margin-top: 10px;
+	border:1px solid black;
+	border-radius: 10px;
+}
+#newthread{
+	width: 15%;
+	height: 50px;
+	border:1px solid black;
+	margin-left:20px; 
+}
+#personalonforum div{
+	background-color: rgba(20,120,20,.8);
+	border-radius: 100px;
+	width: 150px;
+	height: 150px;
+	border:1px solid grey;
+	margin-left: 19%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 0px:;
+}
+#personalonforum img{
+	width: 100%;
+	height: 100%;
+}
+#personalonforum form{
+	margin-top: 25px;
+	margin-left: 15px;
+}
+
+#announcement-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  width: 50%;
+  
+}
+
+#details{
+	 position: absolute;
+    top: 20%;
+    right: 10%;
+	margin-bottom: 10px;
+	float: right;
+	margin-top: 10px;
+	border:1px solid black;
+	border-radius: 10px;
+}
+#newsF {
+	min-height: 500px;
+}
+
+#indi_post {
+	padding: 1% 10%;
+	width:100%
+	
+}
+
+
+
+
+

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recruiter Profile</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/styles2.css">
+	<link rel="stylesheet" type="text/css" href="../static/styles.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+{%if error%}
+	<script> alert("{{error}}")</script>
+{%endif%}
+	<header  class="w3-container w3-black w3-margin-0">
+		<a href="/homepage" class="w3-bar-item w3-button w3-xlarge w3-round-xxlarge ">ASP</a>
+		<span class="w3-center w3-bar-item">
+			<a href="/newsFeed" class="w3-bar-item w3-button w3-xlarge w3-round-xxlarge ">newsfeed</a>
+			<input class="w3-bar-item w3-round-xxlarge w3-border-0" type="text" name="search" placeholder="search..">
+			<a class="w3-bar-item w3-button w3-round-xxlarge w3-border-0"><i class="material-icons w3-xlarge">search</i></a>
+		</span>
+		<a href="#" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge">notification_important</i></a>
+		<div class="w3-dropdown-hover">
+			<a href="#" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge">arrow_drop_down_circle</i></a>
+			<div class="w3-dropdown-content w3-card-4 w3-black w3-animate-zoom">
+				<a href="/profile" class="w3-bar-item w3-button" style="width:190px"><i class="material-icons w3-xlarge" style="vertical-align: text-bottom;">person</i>profile</a>
+				<a href="#" class="w3-bar-item w3-button" style="width:190px"><i class="material-icons w3-xlarge" style="vertical-align: text-bottom;">ballot</i>pending applicaition</a>
+				<a href="/logout" class="w3-bar-item w3-button" style="width:190px"><i class="w3-bar-item material-icons w3-xlarge" style="vertical-align: text-bottom;">power_settings_new</i>logout</a>
+			</div>
+		</div>
+		<a href="/forum" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge">forum</i></a>	
+	</header>
+	<div id="navigator" class="w3-bar w3-orange" >ASP>Recruiter>Profile</div>
+	<div class="w3-container w3-blue w3-border w3-center w3-border-black w3-round-large" style="width: 60%;margin-left: 20%;margin-right: 20%;"><h4>Recruiter Details</h4></div>
+	<div class="w3-container w3-white w3-padding-16 w3-round-large" style="; margin-left: 20%;margin-right: 20%;">
+
+		<!-- division for profile and update button -->
+
+		<div class="w3-card-4 w3-round-xlarge w3-padding-16" style="float: left; width:20%;">
+
+			<!-- profile pic section -->
+
+			<img src="../images/login.png" style="height: 150px;width: 150px;float: left;border-radius: 100px"> 
+
+			<!-- update button -->
+
+			<span class="w3-round-large w3-button w3-red w3-center" onClick="document.getElementById('ChangeProfPic').style.display='block'" style="margin-left: 15%"><b>update</b></span>
+
+		</div>
+		<!-- student details section -->
+
+		<div class="w3-container" style="width: 75% ; margin-top: 10px;float: right;">
+			<div class="w3-card-4 w3-round-xlarge" style="width: 100%;height: 90%;padding: 5px;">
+				<p><h4>First Name : <b><label id="profilename" style="display: inline;">{{ details[0] }}</label> </b>	</br>
+				Last Name : <b><label id="profilesurname" style="display: inline;" >{{ details[1] }}</label></b></br>
+				Email Address : <b><label id="profileemail" style="display: inline;" >{{ details[2] }}</label></b></br>
+				Name Of The Organization : <b><label id="nameoforgan" style="display: inline;" >{{ details[3] }}</label></b></br>
+				Designation : <b><label id="profileDesig" style="display: inline;" >{{ details[4] }}</label></b></br>
+				Phone Number : <b><label id="phNo" style="display: inline;" >{{ details[5] }}</label></b></br>
+				</p>
+			</div>
+		</div>
+	</div>
+	</br>
+	<div class="w3-container w3-blue w3-center w3-border w3-border-black w3-round-large" style="width: 60%;margin-left: 20%;margin-right: 20%;"><h4>Resumés' And Announcements</h4></div>
+	<div class="w3-container w3-white w3-padding-16 w3-round-large" style="width: 60%;margin-left: 20%;margin-right: 20%;">
+		<div class="w3-button w3-white w3-round-large "onclick="document.getElementById('id02').style.display='block'" >
+			<h4><strong>Resumés' List</strong></h4>
+		</div>
+		</br>
+		<div class="w3-button w3-white w3-round-large "onclick="document.getElementById('id01').style.display='block'" >
+			<h4><strong>Make An Announcement</strong></h4>
+		</div>
+	</div>
+	</br>
+	<div class="w3-container w3-blue w3-border w3-border-black w3-round-large w3-center" style="width: 60%;margin-left: 20%;margin-right: 20%;"><h4>Account Settings</h4></div>
+	<div class="w3-container w3-white w3-round-large" style="width: 60%;margin-left: 20%;margin-right: 20%;">
+		<p><h4><strong><input type="button" class="w3-round-large  w3-button w3-white" onClick="document.getElementById('ChangePass').style.display='block'" value="Change Password"></strong></h4></p>
+		<p><h4><strong><input type="button" class="w3-round-large  w3-button w3-white" onClick="document.getElementById('ChangeContact').style.display='block'" value="Change Contact Number"></strong></h4></p>
+	</div>
+	</br>
+	<div id="id02" class="w3-modal">
+    	<div id="evaluation" class="w3-modal-content w3-border w3-round-xlarge w3-light-grey" style="min-height: 100%">
+    		<div class="w3-bar" style="width: 50%;margin-left: 25%;margin-right: 25%;">
+				<i onclick="document.getElementById('id02').style.display='none'"  class="material-icons w3-button w3-bar-item w3-display-topright" style="display: inline;float: right;">close
+				</i><br>
+				<br>
+				<div class="w3-responsive">
+				    <table class="w3-table">
+				    	<tr class= "w3-grey">
+				    		<th>Roll Number</th>
+				    		<th>Name</th>
+				    	
+				    		<th>Contact</th>
+				    	</tr>	
+				    </table>
+				</div>    
+      		</div>
+    	</div>
+  	</div>
+	<div id="id01" class="w3-modal">
+    	<div id="announcement" class="w3-modal-content w3-border w3-round-xlarge w3-light-grey w3-padding-32" style="width: 60%;">
+    		<div class="w3-bar" style="width: 50%;margin-left: 25%;margin-right: 25%;">
+				<i onclick="document.getElementById('id01').style.display='none'"  class="material-icons w3-button w3-bar-item w3-display-topright" style="display: inline;float: right;">close
+				</i><br>
+        		<form action="/makeAnnouncement" method="POST">
+        			<input type="text" name="job_name" required="required" placeholder="Job Title" class="w3-input w3-border w3-round-large"><br>
+        			<textarea name="job_specification"  required="required" placeholder="Job Specifications" class="w3-input w3-border w3-round-large"></textarea><br>
+        			<textarea name="job_description"  required="required" placeholder="Job Description" class="w3-input w3-border w3-round-large"></textarea><br>
+        			<input type="number" name="salary" accept="number"  required="required" placeholder="Salary Package(Per Annum in Lakhs)" class="w3-input w3-border w3-round-large"><br>	
+					<input type="numbert" name="Baggregate" accept="number"  required="required" placeholder="Minimum B.tech Aggregate(in %)" class="w3-input w3-border w3-round-large"><br>	
+        			<strong>Last Date For Applying :</strong>
+        			<input type="date"  required="required" name="last_date" class="w3-input-half w3-border w3-round-large"><br>
+        			<input type="submit" name="submit" value="Announce"  required="required" class="w3-border w3-round-large w3-button " style="background-color: coral;margin-top: 8px">
+
+        		</form>
+      		</div>
+    	</div>
+  	</div>
+	<div id="ChangePass" class="w3-modal">
+		<div class="w3-modal-content w3-animate-opacity w3-light-gray w3-round-xlarge w3-padding-16 " >
+			<div class="w3-container " >
+				<span onclick="document.getElementById('ChangePass').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+				<form  action="/changepassword" method="POST" >
+					<p><h4><strong>Current Password</h4><input type="password" required="required" class="w3-input w3-border w3-round-large" name="Cpass" placeholder="Type Here"></strong></h4></p>
+					<p><h4><strong>New Password</h4><input type="password" required="required" class="w3-input w3-border w3-round-large" name="pass" placeholder="Type Here"></strong></h4></p>
+					<p><h4><strong>Re-Enter Password</h4><input type="password" required="required" class="w3-input w3-border w3-round-large" name="pass2" placeholder="Type Here"></strong></h4></p>
+					<p><h4><strong><div align="center"><input type="submit" class="w3-round-large w3-button w3-blue" value="Change Password"></div></strong></h4></p>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="ChangeContact" class="w3-modal">
+		<div class="w3-modal-content w3-animate-opacity w3-light-gray w3-round-xlarge w3-padding-16 " >
+			<div class="w3-container " >
+				<span onclick="document.getElementById('ChangeContact').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+				<form  action="/changecontact" method="POST" >
+					<p><h4><strong>Current Password</h4><input type="password" required="required" class="w3-input w3-border w3-round-large" name="Cpass" placeholder="Type Here"></strong></h4></p>
+					<p><h4><strong>New Contact Number</h4><input type="number" min="6000000000" max="9999999999" required="required" class="w3-input w3-border w3-round-large" name="NCNum" placeholder="Type Here"></strong></h4></p>
+					<p><h4><strong><div align="center"><input type="submit" class="w3-round-large w3-button w3-blue" value="Change Contact Number"></div></strong></h4></p>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="ChangeProfPic" class="w3-modal">
+		<div class="w3-modal-content w3-animate-opacity w3-light-gray w3-round-xlarge w3-padding-16 " >
+			<div class="w3-container " >
+				<span onclick="document.getElementById('ChangeProfPic').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+				<form>
+					<div align="center"><img src="../images/login.png" style="height: 150px;width: 150px;"></div>
+
+					<p><h4><strong><div align="center">
+						<input type="file" accept="image/*" name="profpic"><input type="button" class="w3-round-large w3-button w3-blue" value="Upload Profile Picture"></div></strong>
+					</h4></p>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

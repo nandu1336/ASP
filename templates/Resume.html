@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Resumé-ASP</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/styles2.css">
+	<link rel="stylesheet" type="text/css" href="../static/styles.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+	{% if error %}
+		<script type="text/javascript">alert('{{error}}')</script>
+	{%endif%}
+	<header  class="w3-container w3-black w3-margin-0">
+		<a href="/homepage" class="w3-bar-item w3-button w3-xlarge w3-round-xxlarge">ASP</a>
+		<span class="w3-center w3-bar-item">
+			<a href="/newsFeed" class="w3-bar-item w3-button w3-xlarge w3-round-xxlarge ">newsfeed</a>
+			<input class="w3-bar-item w3-round-xxlarge w3-border-0" type="text" name="search" placeholder="search..">
+			<a class="w3-bar-item w3-button w3-round-xxlarge w3-border-0"><i class="material-icons w3-xlarge">search</i></a>
+		</span>
+		<a href="#" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge">notification_important</i></a>
+		<div class="w3-dropdown-hover">
+			<a href="#" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge"><i class="material-icons">arrow_drop_down_circle</i></i></a>
+			<div class="w3-dropdown-content w3-card-4 w3-black w3-animate-zoom">
+				<a href="/profile" class="w3-bar-item w3-button" style="width:190px"><i class="material-icons w3-xlarge" style="vertical-align: text-bottom;">person</i>profile</a>
+				<a href="/logout" class="w3-bar-item w3-button" style="width:190px"><i class="w3-bar-item material-icons w3-xlarge" style="vertical-align: text-bottom;">power_settings_new</i>logout</a>
+			</div>
+		</div>
+		<a href="/forum" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge">forum</i></a>	
+	</header>
+	<div id="navigator" class="w3-bar w3-orange"> ASP > Profile > Resumé application
+	</div>
+	<div class=" w3-padding-16 w3-panel  w3-border w3-round-xlarge w3-light-grey" style="height: 1550px; margin-left: 15%;width: 70%;margin-right: 15%;">
+		<div align="center"><h3><b>Resumé Application</b></h3></div>
+		<form action="/resumeapplication" method="POST">
+			<label class="w3-text-grey"><h4>Career Profile</h4></label>
+			<div><textarea rows="4" cols="50" class="w3-input w3-border w3-round-large" name="CProfile" placeholder="Eg:A highly accomplished, skilled and knowledgeable computer science student with extensive knowledge of programming and computer applications.">{%  if resume %} {{resume_data[0]}} {%endif%}</textarea></div>
+			<label class="w3-text-grey"><h4>Professional Strengths</h4></label>
+			<textarea rows="4" cols="50" class="w3-input w3-border w3-round-large" name="PStrength" placeholder="Eg:Possess excellent verbal and written communication skills.">{%  if resume %} {{resume_data[1]}} {%endif%}</textarea>
+			<label class="w3-text-grey"><h4>Technical Proficiency</h4></label>
+			<textarea rows="4" cols="50" class="w3-input w3-border w3-round-large" name="TProficiency" placeholder="Eg:Programming Languages: BASIC, dBase II">{%  if resume %} {{resume_data[2]}} {%endif%}</textarea>
+			<label class="w3-text-grey"><h4>Professional Experience</h4></label>
+			<textarea rows="4" cols="50" class="w3-input w3-border w3-round-large" name="PExperience" placeholder="Type Here...">{%  if resume %} {{resume_data[3]}} {%endif%}</textarea>
+			<label class="w3-text-grey"><h4>Personal Achievements</h4></label>
+			<textarea rows="4" cols="50" class="w3-input w3-border w3-round-large" name="PAchievement" placeholder="Type Here...">{%  if resume  %} {{resume_data[4]}} {%endif%}</textarea>
+			<label class="w3-text-grey"><h4>Extra Curricular Activities</h4></label>
+			<textarea rows="4" cols="50" class="w3-input w3-border w3-round-large" name="ECActivities" placeholder="Eg:Active member of SAC.">{%  if resume %} {{resume_data[5]}} {%endif%}</textarea>
+			<label class="w3-text-grey"><h4>Interesume_datats And Hobbies</h4></label>
+			<textarea rows="4" cols="50" class="w3-input w3-border w3-round-large" name="IAHobby" placeholder="Eg:Playing Basketball.">{%  if resume %} {{resume_data[6]}} {%endif%}</textarea>
+			<label class="w3-text-grey"><h4>Educational Summary</h4></label>
+			<textarea rows="4" cols="50" class="w3-input w3-border w3-round-large" name="ESummary" placeholder="Eg:Bachelor's Degree In Computer Science And Engineering.">{%  if resume%} {{resume_data[7]}} {%endif%}</textarea>
+			<label class="w3-text-grey"><h4>Personal Details</h4></label>
+			<textarea rows="4" cols="50" class="w3-input w3-border w3-round-large" name="PDetail" placeholder="Name,Date Of Birth,Email Addresume_datas,Phone Number,House Addresume_datas,Employment Status(Full Time/Half Time)">{%  if resume %} {{resume_data[8]}} {%endif%}</textarea></br>
+			<div style="text-align:center"> <input type="submit" name="submit" value="Submit" class="w3-button w3-blue w3-round-large"></div>
+		</form>
+	</div>
+	<footer class="w3-bar w3-black" style=" margin-top: 100px;">
+		<div class="w3-bar-item w3-marigin " >
+			<span class="w3-container">
+				<table class="w3-table">
+					<tr >
+						<th><strong>about us:</strong></th>
+						<th>	</th>
+						<th><strong>contact us for:</strong></th>
+						<th>	</th>
+						<th><strong><a href="#" class="w3-button w3-round-xxlarge" >join our community</a></strong></th>
+					</tr>
+					<tr>
+						<td><a href="#" class="w3-button w3-round-xxlarge">ASP team</a></td>
+						<td></td>
+						<td><a href="#" class="w3-button w3-round-xxlarge">Queries</a></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td><a href="#" class="w3-button w3-round-xxlarge">Complaints</a></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td><a href="#" class="w3-button w3-round-xxlarge">FAQ's</a></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</span>
+			<span class="w3-bar-item"><p><b>follow us on :</b></p>
+				<span class="w3-button w3-indigo w3-round-large"><b>facebook</b></span>
+				<span class="w3-button w3-red w3-round-large"><b>google</b></span>
+				<san class="w3-button  w3-blue w3-round-large"><b>twitter</b></span>
+			</span>
+		</div>
+	</footer>
+</body>
+</html>

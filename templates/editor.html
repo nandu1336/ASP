@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new thread</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/styles2.css">
+	<link rel="stylesheet" type="text/css" href="../static/styles.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+</head>
+<body>
+
+	<!-- header section starts here -->
+
+	<header  class="w3-container w3-black w3-margin-0">
+		<a href="homepage.html" class="w3-bar-item w3-button w3-xlarge w3-round-xxlarge">ASP</a>
+		<span class="w3-center w3-bar-item">
+			<a href="newsfeed.html" class="w3-bar-item w3-button w3-xlarge w3-round-xxlarge ">newsfeed</a>
+			<input class="w3-bar-item w3-round-xxlarge w3-border-0" type="text" name="search" placeholder="search..">
+			<a class="w3-bar-item w3-button w3-round-xxlarge w3-border-0"><i class="material-icons w3-xlarge">search</i></a>
+		</span>
+		<a href="#" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge">notification_important</i></a>
+		<div class="w3-dropdown-hover">
+			<a href="#" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge">arrow_drop_down_circle</i></a>
+			<div class="w3-dropdown-content w3-card-4 w3-black w3-animate-zoom">
+				<a href="studentProf.html" class="w3-bar-item w3-button" style="width:190px"><i class="material-icons w3-xlarge" style="vertical-align: text-bottom;">person</i>profile</a>
+				<a href="#" class="w3-bar-item w3-button" style="width:190px"><i class="material-icons w3-xlarge" style="vertical-align: text-bottom;">ballot</i>pending applicaition</a>
+				<a href="#" class="w3-bar-item w3-button" style="width:190px"><i class="w3-bar-item material-icons w3-xlarge" style="vertical-align: text-bottom;">power_settings_new</i>logout</a>
+			</div>
+		</div>
+		<a href="forum.html" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge">forum</i></a>	
+	</header>
+
+	<!-- navigator section -->
+
+
+	<div id="navigator" class="w3-bar w3-orange" >ASP</div>
+
+	<div class="w3-container" style="width: 50%;height: 50px;margin-left: 2%;">
+	</div>
+
+	<!-- start a form to create editor -->
+
+	<form id="articleContent" method="post">
+		<div>
+      		<textarea cols="80" rows="10" id="content" name="content" placeholder="start entering from here"> 
+      		</textarea>
+      		<script type="text/javascript">
+        		CKEDITOR.replace( 'articleContent' );
+      		</script>
+      		<input type="submit" value="Submit"/>
+    	</div>
+    </form>
+
+
+
+	<!-- footer section -->
+
+	<footer class="w3-bar w3-black" style=" margin-top: 100px;">
+		<div class="w3-bar-item w3-marigin " >
+			<span class="w3-container">
+				<table class="w3-table">
+					<tr >
+						<th><strong>about us:</strong></th>
+						<th>	</th>
+						<th><strong>contact us for:</strong></th>
+						<th>	</th>
+						<th><strong><a href="#" class="w3-button w3-round-xxlarge">join our community</a></strong></th>
+					</tr>
+					<tr>
+						<td><a href="#" class="w3-button w3-round-xxlarge">ASP team</a></td>
+						<td></td>
+						<td><a href="#" class="w3-button w3-round-xxlarge">Queries</a></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td><a href="#" class="w3-button w3-round-xxlarge">Complaints</a></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td><a href="#" class="w3-button w3-round-xxlarge">FAQ's</a></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</span>
+			<span class="w3-bar-item"><p><b>follow us on :</b></p>
+				<span class="w3-button w3-indigo w3-round-large"><b>facebook</b></span>
+				<span class="w3-button w3-red w3-round-large"><b>google</b></span>
+				<span class="w3-button  w3-blue w3-round-large"><b>twitter</b></span>
+			</span>
+		</div>
+	</footer>
+</body>
+</html>

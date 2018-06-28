@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FORUM</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/styles2.css">
+	<link rel="stylesheet" type="text/css" href="../static/styles.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+	<header  class="w3-container w3-black w3-margin-0">
+		<a href="/homepage" class="w3-bar-item w3-button w3-xlarge w3-round-xxlarge">ASP</a>
+		<span class="w3-center w3-bar-item">
+			<a href="/newsFeed" class="w3-bar-item w3-button w3-xlarge w3-round-xxlarge ">newsfeed</a>
+			<input class="w3-bar-item w3-round-xxlarge w3-border-0" type="text" name="search" placeholder="search..">
+			<a class="w3-bar-item w3-button w3-round-xxlarge w3-border-0"><i class="material-icons w3-xlarge">search</i></a>
+		</span>
+		<a href="#" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge">notification_important</i></a>
+		<div class="w3-dropdown-hover">
+			<a href="#" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge">arrow_drop_down_circle</i></a>
+			<div class="w3-dropdown-content w3-card-4 w3-black w3-animate-zoom">
+				<a href="/profile" class="w3-bar-item w3-button" style="width:190px"><i class="material-icons w3-xlarge" style="vertical-align: text-bottom;">person</i>profile</a>
+				{% if det == 'administrator' or det == 'recruiter' %} <a href="#" class="w3-bar-item w3-button" style="width:190px"><i class="material-icons w3-xlarge" style="vertical-align: text-bottom;">ballot</i>pending applicaition</a>  {% endif %}
+				<a href="/logout" class="w3-bar-item w3-button" style="width:190px"><i class="w3-bar-item material-icons w3-xlarge" style="vertical-align: text-bottom;">power_settings_new</i>logout</a>
+			</div>
+		</div>
+		<a href="/forum" class="w3-bar-item w3-button w3-round-xxlarge w3-orange"><i class="material-icons w3-xlarge">forum</i></a>	
+	</header>
+	<div id="navigator" class="w3-bar w3-orange" >ASP>FORUM
+	</div>
+	<div  class="w3-bar w3-blue">
+		<div id="categories">
+		<!--to change the color and other properties of this bar style.css->#categories -->
+			<a href="#" class="w3-bar-item w3-button "><b>recently added</b></a>
+			<a href="#" class="w3-bar-item w3-button "><b>popular in this week</b></a>
+			<a href="#" class="w3-bar-item w3-button "><b>my threads</b></a>
+			<a href="#" class="w3-bar-item w3-button "><b>activity</b></a>
+		</div>
+	</div>
+	<div id="streams" class="w3-bar ">
+		<!--to change the color and other properties of this bar style.css->#streams div-->
+		<div>
+			<!--to change the color and other properties of this bar style.css->#streams div a-->
+			<a href="#" class="w3-bar-item w3-button "><b>cse</b></a>
+			<a href="#" class="w3-bar-item w3-button "><b>ece</b></a>
+			<a href="#" class="w3-bar-item w3-button "><b>eee</b></a>
+			<a href="#" class="w3-bar-item w3-button "><b>mech.</b></a>
+			<a href="#" class="w3-bar-item w3-button "><b>civil</b></a>
+		</div>
+	</div>
+	<hr>
+	<div id="forum" class="w3-card-4">
+		<div id="threadmeta" class="w3-bar">
+			<div id="sub" class="w3-bar-item" style="display: inline">
+				<label class="w3-bar-item"><b>subject</b></label>
+			</div>
+			<span class="w3-bar-item">
+				<label class="w3-bar-item "><strong>posted by</strong></label>
+				<label class="w3-bar-item "><strong>date</strong></label>
+				<label class="w3-bar-item "><strong>comments</label>
+			</span>
+		</div>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+		<textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="68"></textarea><textarea class="w3-bar-item w3-round-xlarge" rows="2" cols="32""></textarea>
+	</div>
+	<div>
+		<div id="newthread" onclick="document.getElementById('threaddetails').style.display='block'" class="w3-button w3-card-4 w3-teal w3-round-large"><b style="font-size: 20px;">new thread</b><i class="material-icons" style="vertical-align: text-bottom;">create</i></div>
+		<div id="threaddetails" class="w3-modal">
+			<div  class="w3-modal-content w3-padding-16 w3-container w3-center w3-border w3-round-xlarge w3-light-grey" style="width: 50%;height: 550px;margin-left: 25%;margin-right: 25%;">
+    				<div class="w3-bar w3-amber" style="width: 100%;">
+    					<label class="w3-bar-item w3-center" style="font-family: 'garamond';font-size: 130%;margin-left: 38%"><b>thread navigaiton</b></label>
+    					<i class="material-icons w3-button w3-bar-item" onclick="document.getElementById('threaddetails').style.display='none' " style="float: right;">close</i>
+    				
+    					<!-- <div class="w3-button w3-bar-item w3-round-xlarge w3-blue" style="float: right;vertical-align: text-top;margin-top: 3px;margin-right: 15%;"><b>new thread</b></div> -->
+
+					</div>
+
+					<!-- two colums section -->
+
+					<div class="w3-container" style="width: 100%;height: 75%;">
+
+						<!-- first column starts here -->
+
+						<div class="w3-container w3-red" style="width: 50%;height: 82%;float: left;">
+							<h4 style="font-family: verdana;"><b>choose category</b></h4><br><br>
+							<span class="w3-button"><input type="submit" value="general" name="generaltype" onclick="document.getElementById('branches').style.display='block'" class="w3-button w3-round-xlarge" style="margin: 5px;width: 100px;"><i class="material-icons" style="vertical-align: text-top;">chevron_right</i><br></span>
+							<span class="w3-button"><input type="submit" value="news" name="newstype" onclick="document.getElementById('branches').style.display='block'" class="w3-button w3-round-xlarge" style="margin: 5px;width: 100px;"><i class="material-icons" style="vertical-align: text-top;">chevron_right</i><br></span>
+							<span class="w3-button"><input type="submit" value="poll" name="polltype" onclick="document.getElementById('branches').style.display='block'" class="w3-button w3-round-xlarge" style="margin: 5px;width: 100px;"><i class="material-icons" style="vertical-align: text-top;">chevron_right</i><br></span>
+						</div>
+
+						<!-- second column starts here -->
+
+						<div class="w3-container w3-blue" style="width: 50%;height: 82%;float: left;">
+							<span id="branches" class="w3-container" style="display: none">
+								<span class="w3-container" ">
+									<div onclick="document.getElementById('title').style.display='block'" class="w3-button w3-black" style="margin: 5px;width: 70px;">cse</div><br>
+									<div onclick="document.getElementById('title').style.display='block'" class="w3-button w3-black" style="margin: 5px;width: 70px;">ece</div><br>
+									<div onclick="document.getElementById('title').style.display='block'" class="w3-button w3-black" style="margin: 5px;width: 70px;">eee</div><br>
+									<div onclick="document.getElementById('title').style.display='block'" class="w3-button w3-black" style="margin: 5px;width: 70px;">mech.</div><br>
+									<div onclick="document.getElementById('title').style.display='block'" class="w3-button w3-black" style="margin: 5px;width: 70px;">civil</div><br>
+								</span>
+							</span>
+						</div>
+					</div>
+
+					<!-- two columns end here -->
+
+					<!-- this is the modal to enter the title of the thread -->
+
+					<div id="title" class="w3-modal" style="display: none;">
+						<div class="w3-modal-content">
+							<div class="w3-bar w3-indigo" style="width: 100%;">
+								<p class="w3-bar-item" style="float: left;margin-left: 30%;font-family: 'verdana'"><b>THREAD TITLE</b></p>
+								<i onclick="document.getElementById('title').style.display='none'" class="material-icons w3-button" style="float: right;">close</i>
+							</div>
+							<div class="w3-container" style="height: 100px;">
+								<label style="float: left;margin-left: 5%">enter thread name:</label>
+								<input id="threadtitle" type="text" onkeydown="keydown()" autofocus="autofocus" name="threadtitle" placeholder="max 80 characters are allowed" class="w3-input" style="float: left; border:1px solid black;width: 450px;margin-left: 2%">
+								<button type="button" onclick="validator()" class="w3-button w3-blue">proceed</button>
+								<p id="proom">80 characters left</p>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+		<div id="personalonforum" class="w3-container w3-card-4">
+			<div class="w3-card-4 w3-center">
+				<img id="dp" src="../images/login.png" >
+			</div>
+			<form>
+				<label><b>name:</b></label><label id="profielname" style="display: none">nandu</label><br><br>
+				<label><b>your threads:</b></label><label id="threads" style="display: none;"></label><br><br>
+				<label><b>messages:</b></label><label id="messages" style="display: none"></label><br><br>
+				<span style="display: inline;">inbox:</span><a href="#>"><i class="material-icons w3-button" style="display: inline;">chat</i></a></a>
+			</form>
+		</div>
+	</div>
+
+	<!-- footer section -->
+	
+	<footer class="w3-bar w3-black" style=" margin-top: 700px;">
+		<div class="w3-bar-item w3-marigin " >
+			<span class="w3-container">
+				<table class="w3-table">
+					<tr >
+						<th><strong>about us:</strong></th>
+						<th>	</th>
+						<th><strong>contact us for:</strong></th>
+						<th>	</th>
+						<th><strong><a href="#" class="w3-button w3-round-xxlarge">join our community</a></strong></th>
+					</tr>
+					<tr>
+						<td><a href="#" class="w3-button w3-round-xxlarge">ASP team</a></td>
+						<td></td>
+						<td><a href="#" class="w3-button w3-round-xxlarge">Queries</a></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td><a href="#" class="w3-button w3-round-xxlarge">Complaints</a></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td><a href="#" class="w3-button w3-round-xxlarge">FAQ's</a></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</span>
+			<span class="w3-bar-item"><p><b>follow us on :</b></p>
+				<span class="w3-button w3-indigo w3-round-large"><b>facebook</b></span>
+				<span class="w3-button w3-red w3-round-large"><b>google</b></span>
+				<span class="w3-button  w3-blue w3-round-large"><b>twitter</b></span>
+			</span>
+		</div>
+	</footer>
+ 	
+ 	<script type="text/javascript">
+ 		function validator() { 			
+ 			 window.location="editor.html";
+ 		}
+ 		function keydown(){
+ 			var chars = document.getElementById('threadtitle').value;
+ 			var max = char.length;
+ 			var room = 80 - max;
+ 			if (room >= 0) {document.getElementById("proom").innerHTML = room+"characters left.";}
+ 			else {alert('limit exceeded');}
+ 	</script>
+
+</body>
+</html>

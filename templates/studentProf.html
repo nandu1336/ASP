@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Profile</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/styles2.css">
+	<link rel="stylesheet" type="text/css" href="../static/styles.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+{% if error %}
+	<script type="text/javascript">alert('{{error}}')</script>
+{%endif%}
+<header  class="w3-container w3-black w3-margin-0">
+		<a href="/homepage" class="w3-bar-item w3-button w3-xlarge w3-round-xxlarge ">ASP</a>
+		<span class="w3-center w3-bar-item">
+			<a href="/newsFeed" class="w3-bar-item w3-button w3-xlarge w3-round-xxlarge ">newsfeed</a>
+			<input class="w3-bar-item w3-round-xxlarge w3-border-0" type="text" name="search" placeholder="search..">
+			<a class="w3-bar-item w3-button w3-round-xxlarge w3-border-0"><i class="material-icons w3-xlarge">search</i></a>
+		</span>
+		<a href="#" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge">notification_important</i></a>
+		<div class="w3-dropdown-hover">
+			<a href="#" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge">arrow_drop_down_circle</i></a>
+			<div class="w3-dropdown-content w3-card-4 w3-black w3-animate-zoom">
+				<a href="/profile" class="w3-bar-item w3-button" style="width:190px"><i class="material-icons w3-xlarge" style="vertical-align: text-bottom;">person</i>profile</a>
+				{% if det == 'administrator' or det == 'recruiter' %} <a href="#" class="w3-bar-item w3-button" style="width:190px"><i class="material-icons w3-xlarge" style="vertical-align: text-bottom;">ballot</i>pending applicaition</a>  {% endif %}
+				<a href="/logout" class="w3-bar-item w3-button" style="width:190px"><i class="w3-bar-item material-icons w3-xlarge" style="vertical-align: text-bottom;">power_settings_new</i>logout</a>
+			</div>
+		</div>
+		<a href="/forum" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge">forum</i></a>	
+	</header>
+	<div id="navigator" class="w3-bar w3-orange" >ASP>Student>Profile</div>
+	{% if d == 1 %} <h3 class="w3-center">Create your resumé down below</h3>  {% endif %}
+	<div class="w3-container w3-blue w3-border w3-border-black w3-round-large" style="width: 60%;margin-left: 20%;margin-right: 20%;"><h4>Student Details</h4></div>
+	<div class="w3-container w3-white" style="width: 60%;height: 320px; margin-left: 20%;margin-right: 20%;">
+	<div class="w3-card-4 w3-round-xlarge" style="float: left; margin-top: 30px;width: 20%;height: 55%">
+
+			<!-- profile pic section -->
+
+			<img src="../images/login.png" style="height: 120px;width: 120px;float: left;border-radius: 100px"> 
+
+			<!-- update button -->
+
+			<span class="w3-round-large w3-button w3-red w3-center" onClick="document.getElementById('ChangeProfPic').style.display='block'" style="margin-left: 15%"><b>update</b></span>
+
+		</div>
+	<!-- student details section -->
+
+		<div class="w3-container" style="width: 75% ;height: 300px; margin-top: 10px;float: right;">
+			<div class="w3-card-4 w3-round-xlarge" style="width: 100%;height: 90%;padding: 5px;">
+				<p><h4>First Name :<b><label id="profilename" style="display: inline;">{{  details[0] }}	</label></b></br>
+				Last Name: <b><label id="profilesurname" style="display: inline;" >{{  details[1] }}		</label></b></br>
+				Email Address: <b><label id="profileemail" style="display: inline;" >{{  details[2] }}		</label></b></br>
+				Roll Number: <b><label id="profilerollno" style="display: inline;" >{{  details[3] }}		</label></b></br>
+				Branch: <b><label id="profilebranch" style="display: inline;" >{{  details[4] }}			</label></b></br>
+				Gender: <b><label id="profilegender" style="display: inline;" >{{  details[5] }}			</label></b></br>
+				B.Tech Aggregate:<b><label id="profilepercent" style="display: inline;" > {{  details[6] }} </label></b></h4>
+				</p>
+			</div>
+		</div>
+	</div>
+	</br>
+	<div class="w3-container w3-blue w3-border w3-border-black w3-round-large" style="width: 60%;margin-left: 20%;margin-right: 20%;"><h4>Resumé Settings</h4></div>
+	<div class="w3-container w3-white" style="width: 60%;margin-left: 20%;margin-right: 20%;">
+		<p><h4><strong><a href="/updateResume" class="w3-button w3-white w3-round-large">Set/Update Resumé</a></strong></h4></p>
+		<p><h4><strong><a href="/deleteResume" class="w3-button w3-white w3-round-large">Delete Resumé</a></strong></h4></p>
+	</div>
+	</br>
+	<div class="w3-container w3-blue w3-border w3-border-black w3-round-large" style="width: 60%;margin-left: 20%;margin-right: 20%;"><h4>Account Settings</h4></div>
+	<div class="w3-container w3-white" style="width: 60%;margin-left: 20%;margin-right: 20%;">
+		<p><h4><strong><input type="button" class="w3-round-large w3-button w3-white" onClick="document.getElementById('ChangePass').style.display='block'" value="Change Password"></strong></h4></p>
+		<p><h4><strong><input type="button" class="w3-round-large w3-button w3-white" onClick="document.getElementById('ChangeAgg').style.display='block'" value="Change B.Tech Aggregate"></strong></h4></p>
+	</div>
+	</br>
+	
+	<div class="w3-container w3-white" style="width: 60%;margin-left: 20%;margin-right: 20%;" >
+	<div id="ChangePass" class="w3-modal">
+		<div class="w3-modal-content w3-animate-opacity w3-light-gray w3-round-xlarge w3-padding-16 " >
+			<div class="w3-container " >
+				<span onclick="document.getElementById('ChangePass').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+				<form action="/changepassword" method="POST">
+					<p><h4><strong>Current Password</h4><input type="password" class="w3-input w3-border w3-round-large" name="Cpass" placeholder="Type Here"></strong></h4></p>
+					<p><h4><strong>New Password</h4><input type="password" class="w3-input w3-border w3-round-large" name="pass" placeholder="Type Here"></strong></h4></p>
+					<p><h4><strong>Re-Enter Password</h4><input type="password" class="w3-input w3-border w3-round-large" name="pass2" placeholder="Type Here"></strong></h4></p>
+					<p><h4><strong><div align="center"><input type="submit" class="w3-round-large w3-button w3-blue" value="Change Password"></div></strong></h4></p>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="ChangeAgg" class="w3-modal">
+		<div class="w3-modal-content w3-animate-opacity w3-light-gray w3-round-xlarge w3-padding-16 " >
+			<div class="w3-container " >
+				<span onclick="document.getElementById('ChangeAgg').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+				<form action="/changeagg" method="POST">
+					<p><h4><strong>Current Password</h4><input type="password" class="w3-input w3-border w3-round-large" name="Cpass" placeholder="Type Here"></strong></h4></p>
+					<p><h4><strong>B.Tech Aggregate</h4><input type="text" class="w3-input w3-border w3-round-large" name="Agg" placeholder="Type Here"></strong></h4></p>
+					<p><h4><strong><div align="center"><input type="submit" class="w3-round-large w3-button w3-blue" value="Update Aggregate"></div></strong></h4></p>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="ChangeProfPic" class="w3-modal">
+		<div class="w3-modal-content w3-animate-opacity w3-light-gray w3-round-xlarge w3-padding-16 " >
+			<div class="w3-container " >
+				<span onclick="document.getElementById('ChangeProfPic').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+				<div align="center"><img src="../images/login.png" style="height: 150px;width: 150px;"></div>
+				<p><h4><strong><div align="center"><input type="button" class="w3-round-large w3-button w3-blue" value="Upload Profile Picture"></div></strong></h4></p>
+			</div>
+		</div>
+	</div>
+	
+	
+</body>
+
+</html>
