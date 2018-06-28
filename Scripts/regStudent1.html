@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student registration form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/styles2.css">
+	<link rel="stylesheet" type="text/css" href="../static/styles.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+{%if error%}
+<script> alert("{{error}}")</script>
+{%endif%}
+<header class="w3-container w3-black w3-margin-0">
+		<a href="homepage.html" class="w3-bar-item w3-button w3-xlarge w3-round-xxlarge w3-orange">ASP</a>
+		<span class="w3-center w3-bar-item">
+			<a href="newsfeed.html" class="w3-bar-item w3-button w3-xlarge w3-round-xxlarge">newsfeed</a>
+			<input class="w3-bar-item w3-round-xxlarge w3-border-0" type="text" name="search" placeholder="search..">
+			<a class="w3-bar-item w3-button w3-round-xxlarge w3-border-0"><i class="material-icons w3-xlarge">search</i></a>
+		</span>
+		<a href="#" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge">notification_important</i></a>
+		<a href="#" class="w3-bar-item w3-button w3-round-xxlarge "><i class="material-icons w3-xlarge">forum</i></a>	
+	</header>
+	<div id="navigator" class="w3-bar w3-orange"> ASP > student registration</div>
+	<div class=" w3-padding-16 w3-panel  w3-border w3-round-xlarge w3-light-grey " style="width: 40%;margin-left: 30%;margin-right: 25%; ">
+		<h2 style="text-shadow:1px 1px 0 #444 "><strong><div align="center">Create an account</div></strong></h2>
+		<div class="w3-panel w3-padding-large" >
+		<form class="w3-container" name="form" method="POST" action="/data">
+			<p>
+			<div><div class="w3-half"><h4>First Name</h4><input required type="text" class="w3-input w3-border w3-round-large " name="uname" placeholder="Type Here"></div>
+			<div class="w3-half"><h4>Last Name</h4><input  type="text" class="w3-input w3-border w3-round-large " name="uname2" placeholder="Type Here"></div></div></p>
+			<h4>Email</h4><input required type="email" class="w3-input w3-border w3-round-large" name="email" placeholder="Type Here">
+			<p><h4>Roll Number</h4><input required type="text" class="w3-input w3-border w3-round-large" name="roll" placeholder="Type Here"></p>
+			<p><h4>Branch</h4><select required class="w3-select w3-round-large" name="branchOption">
+				<option value="" disabled selected>Choose Your Branch</option>
+				<option value="1">CSE</option>
+				<option value="2">ECE</option>
+				<option value="3">MECH</option>
+				<option value="4">EEE</option>
+				<option value="5">CIVIL</option>
+			</select></p>
+			<p><h4>Gender</h4><select required class="w3-select w3-round-large" name="genderOption">
+				<option value="" disabled selected>Choose You Gender</option>
+				<option value="1">MALE</option>
+				<option value="2">FEMALE</option>
+				<option value="3">OTHERS</option>
+			</select></p>
+			
+			
+			<p><h4>Password</h4><input required pattern=".{6,}" title="The password must contain atleast 6 characters" type="password" class="w3-input w3-border w3-round-large" name="pass" id="pass" placeholder="Type Here"></p>
+			<p><h4>Re-Enter Password</h4><input required pattern=".{6,}" title="The password must contain atleast 6 characters" oninput="validatePass();" type="password" class="w3-input w3-border w3-round-large" name="pass2" id="pass2" placeholder="Type Here"></p>
+			
+			<p id="pw"></p>
+			<input type="checkbox" onclick="showPass();">Show Password</br>
+			
+			<div class="w3-center"><h4><input type="submit" name="register" value="Register" onclick="validateForm();" class="w3-button w3-blue w3-round-large"></h4></div>
+		</form>
+		</div>
+	</div>
+	<footer class="w3-bar w3-black" style=" margin-top: 100px;">
+		<div class="w3-bar-item w3-marigin " >
+			<span class="w3-container">
+				<table class="w3-table">
+					<tr >
+						<th><strong>about</strong></th>
+						<th>	</th>
+						<th><strong>contact us</strong></th>
+						<th>	</th>
+						<th><strong><a href="#" class="w3-button w3-round-xxlarge">join our community</a></strong></th>
+					</tr>
+					<tr>
+						<td><a href="#" class="w3-button w3-round-xxlarge">ASP team</a></td>
+						<td></td>
+						<td><a href="#" class="w3-button w3-round-xxlarge">Queries</a></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td><a href="#" class="w3-button w3-round-xxlarge">Complaints</a></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td><a href="#" class="w3-button w3-round-xxlarge">FAQ's</a></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</span>
+			<span class="w3-bar-item"><p><b>follow us on :</b></p>
+				<span class="w3-button w3-indigo w3-round-large"><b>facebook</b></span>
+				<span class="w3-button w3-red w3-round-large"><b>google</b></span>
+				<span class="w3-button  w3-blue w3-round-large"><b>twitter</b></span>
+			</span>
+		</div>
+	</footer>
+	
+	<script>
+	function validatePass() {
+		var x = document.forms["stuForm"]["pass"].value;
+		var y = document.forms["stuForm"]["pass2"].value;
+		if( x != y ){
+			document.getElementById("pw").innerHTML = "Passwords do not match";
+		}
+		else{
+			document.getElementById("pw").innerHTML="";
+		}
+	}
+	function validateForm(){
+		var x = document.forms["stuForm"]["pass"].value;
+		var y = document.forms["stuForm"]["pass2"].value;
+		if( x != y ){
+			alert("Passwords do not match");
+		}
+	}
+	function showPass() {
+		var x = document.getElementById("pass");
+		var y = document.getElementById("pass2");
+		if (x.type === "password") {
+			x.type = "text";
+			y.type = "text";
+		} 
+		else {
+			x.type = "password";
+			y.type = "password";
+		}
+	}
+	</script>
+	
+</body>
+</html>
