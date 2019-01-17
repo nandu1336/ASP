@@ -35,7 +35,7 @@ def stuReg():
 @app.route('/newsFeed')
 def newsFeed():
 	if 'logged_in' in session:
-		client = MongoClient('localhost')
+		client = MongoClient('mongodb://asp:123456@mongodb/ASP')
 		db = client.ASP
 		announce = db.announcements
 		posts= announce.find({})
@@ -63,7 +63,7 @@ def forum():
 
 @app.route('/dataStu',methods=['POST','GET'])
 def dataStu():
-	client = MongoClient('localhost')
+	client = MongoClient('mongodb://asp:123456@mongodb/ASP')
 	db = client.ASP
 	User = db.userStudents
 
@@ -93,7 +93,7 @@ def dataStu():
 		
 @app.route('/dataAdm',methods=['POST','GET'])
 def dataAdm():
-	client = MongoClient('localhost')
+	client = MongoClient('mongodb://asp:123456@mongodb/ASP')
 	db = client.ASP
 	User = db.userAdmins
 
@@ -125,7 +125,7 @@ def dataAdm():
 
 @app.route('/dataRec',methods=['POST','GET'])
 def dataRec():
-	client = MongoClient('localhost')
+	client = MongoClient('mongodb://asp:123456@mongodb/ASP')
 	db = client.ASP
 	User = db.userRecruiters
 
@@ -157,7 +157,7 @@ def dataRec():
 
 @app.route('/loginInfo' , methods=['POST','GET'])
 def loginInfo():
-	client=MongoClient('localhost')
+	client=MongoClient('mongodb://asp:123456@mongodb/ASP')
 	db=client.ASP
 	userType=request.form['userType']
 	
@@ -248,7 +248,7 @@ def profile():
 	if 'logged_in' in session:
 		if det == "student":
 			stuMail=mail
-			client=MongoClient('localhost')
+			client=MongoClient('mongodb://asp:123456@mongodb/ASP')
 			db=client.ASP
 			global details
 			
@@ -271,7 +271,7 @@ def profile():
 			
 		elif det == "administrator":
 			adminMail=mail
-			client=MongoClient('localhost')
+			client=MongoClient('mongodb://asp:123456@mongodb/ASP')
 			db=client.ASP
 			
 			current_user=db.userAdmins.find_one({"email": adminMail})
@@ -315,7 +315,7 @@ def profile():
 def updateResume():
 	
 	if 'logged_in' in session:
-		client = MongoClient('localhost',27017)
+		client = MongoClient('mongodb://asp:123456@mongodb/ASP',27017)
 		db = client.ASP
 		res = db.resumes
 		resume = res.find_one({'email':mail})
@@ -344,7 +344,7 @@ def updateResume():
 @app.route('/deleteResume')
 def deleteResume():
 	if 'logged_in' in session:
-		client = MongoClient('localhost',27017)
+		client = MongoClient('mongodb://asp:123456@mongodb/ASP')
 		db = client.ASP
 		res = db.resumes
 		resume = res.find_one({'email':mail})
@@ -392,7 +392,7 @@ def resumeapplication():
 def changepassword():
 	if request.method == 'POST':
 		if 'logged_in' in session:		
-			client = MongoClient('localhost')
+			client = MongoClient('mongodb://asp:123456@mongodb/ASP')
 			db = client.ASP
 			if det=="student":
 				User = db.userStudents
@@ -439,7 +439,7 @@ def changepassword():
 def changecontact():
 	if request.method == 'POST':
 		if 'logged_in' in session:		
-			client = MongoClient('localhost')
+			client = MongoClient('mongodb://asp:123456@mongodb/ASP')
 			db = client.ASP
 			User=db.userRecruiters
 			founduser =  User.find_one({'email':mail})
@@ -465,7 +465,7 @@ def changecontact():
 def makeAnnouncement():
 	if request.method == 'POST':
 		if 'logged_in' in session:		
-			client = MongoClient('localhost')
+			client = MongoClient('mongodb://asp:123456@mongodb/ASP')
 			
 			#Getting author's name
 			founduser =  client.ASP.userRecruiters.find_one({'email':mail})
@@ -504,7 +504,7 @@ def changeagg():
 	global _id,details
 	if 'logged_in' in session:
 		if request.method == 'POST':
-			client = MongoClient('localhost')
+			client = MongoClient('mongodb://asp:123456@mongodb/ASP')
 			db = client.ASP
 			User = db.userStudents
 			aggregate = request.form['Agg']
@@ -524,7 +524,7 @@ def changeagg():
 @app.route("/newsFeed/<int:post_id>")
 def post(post_id):
 	if 'logged_in' in session:
-		client = MongoClient('localhost')
+		client = MongoClient('mongodb://asp:123456@mongodb/ASP')
 		db = client.ASP
 		Post = db.announcements
 		post=Post.find_one({"post_id": post_id})
@@ -539,7 +539,7 @@ def post(post_id):
 def deactivate():
 	global mail
 	if 'logged_in' in session:
-		client = MongoClient('localhost')
+		client = MongoClient('mongodb://asp:123456@mongodb/ASP')
 		db = client.ASP
 
 		if det == "student":
@@ -571,7 +571,7 @@ def deactivate():
 def apply():
 	if 'logged_in' in session:
 		global mail
-		client = MongoClient()
+		client = MongoClient('mongodb://asp:123456@mongodb/ASP')
 		db = client.ASP
 		res = db.resumes
 		unverified = db.unverified_resumes
@@ -636,7 +636,7 @@ def verify():
 
 	
 if __name__=='__main__':
-	app.run(debug=True)
+	app.run()
 	
 	
 	
