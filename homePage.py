@@ -3,6 +3,7 @@ from pymongo import MongoClient
 from werkzeug.security import generate_password_hash,check_password_hash
 import datetime, pprint,array
 
+# Connection URL: mongodb://asp:123456@mongodb/ASP
 
 app = Flask(__name__)
 app.secret_key = str(generate_password_hash("9502276095"))
@@ -269,7 +270,20 @@ def profile():
 			return render_template("studentProf.html",details=details,d=d)
 			
 		elif det == "administrator":
-			return render_template('adminProf.html')
+			adminMail=mail
+			client=MongoClient('localhost')
+			db=client.ASP
+			
+			current_user=db.userAdmins.find_one({"email": adminMail})
+			firstname=current_user['firstname']
+			lastname=current_user['lastname']
+			email=current_user['email']
+			branch=current_user['branch']
+			gender=current_user['gender']
+			phno = current_user['phno']
+			details  =  [firstname,lastname,email,branch,gender,phno]
+			
+			return render_template("adminProf.html",details=details)
 			
 		elif det == "recruiter":
 			recMail=mail
@@ -468,6 +482,7 @@ def makeAnnouncement():
 			salary=request.form['salary']
 			aggregate=request.form['Baggregate']
 			lastdate=request.form['last_date']
+			dt=datetime.datetime.now()
 			
 			#Determining the id of the post
 			
@@ -475,7 +490,7 @@ def makeAnnouncement():
 			
 			#Inserting the announcement into a collection called announcements
 			
-			entry={"post_id":post_id,"email":mail,"author":author,"jobtitle":jobtitle,"jobspecs":jobspecs,"jobdesc":jobdesc,"salary":salary,"aggregate":aggregate,"lastdate":lastdate}
+			entry={"post_id":post_id,"date_posted":dt,"email":mail,"author":author,"jobtitle":jobtitle,"jobspecs":jobspecs,"jobdesc":jobdesc,"salary":salary,"aggregate":aggregate,"lastdate":lastdate}
 			document = User.insert_one(entry)
 			return redirect('/profile')
 			
@@ -552,61 +567,45 @@ def deactivate():
 	else:
 		return redirect('/login')
 
-@app.route('/apply',methods=['POST','GET'])
+@app.route('/apply')
 def apply():
-	if request.method == 'POST':
-		post_id = request.form['post_id']
-		if 'logged_in' in session:
-			global mail
-			client = MongoClient()
-			db = client.ASP
-			col = db.verified_resumes
-			col2 = db.applications
+	if 'logged_in' in session:
+		global mail
+		client = MongoClient()
+		db = client.ASP
+		res = db.resumes
+		unverified = db.unverified_resumes
 
-			# checking whether the resume of the user is verifid
+		my_resume = res.find_one({'mail':mail})
+		if my_resume:
+			f1 = my_resume['CProfile']
+			f2 = my_resume['PStrength']
+			f3 = my_resume['TProficiency']
+			f4 = my_resume['PExperience']
+			f5 = my_resume['PAchievement']
+			f6 = my_resume['ECActivities']
+			f7 = my_resume['IAHobby']
+			f8 = my_resume['ESummary']
+			f9 = my_resume['PDetail']
 
-			is_verified = col.find_one({'email':mail})
-
-			if is_verified:
-				f1 = is_verified['CProfile']
-				f2 = is_verified['PStrength']
-				f3 = is_verified['TProficiency']
-				f4 = is_verified['PExperience']
-				f5 = is_verified['PAchievement']
-				f6 = is_verified['ECActivities']
-				f7 = is_verified['IAHobby']
-				f8 = is_verified['ESummary']
-				f9 = is_verified['PDetail']
-	
-			#checking whether the applications has be already submitted to recruiter collection named "applications"
-
-				already_applied = col2.find_one({'email':mail})
-
-			# if already applied , then we should be updating the details of the resume.if not , we should insert the resume as new document in "applications" colleciton
-
-				if already_applied:
-					_id = already_applied['_id']
-					applications.update({'_id':_id},
-						{"$set":{'CProfile':f1,'PStrength':f2,'TProficiency':f3,'PExperience':f4,'PAchievement':f5,'ECActivities':f6,'IAHobby':f7,'ESummary':f8,'PDetail':f9}} )
-					return redirect(url_for(post,post_id))
-				else:
-					applications.insert_one({'mail':mail,'CProfile':f1,'PStrength':f2,'TProficiency':f3,'PExperience':f4,'PAchievement':f5,'ECActivities':f6,'IAHobby':f7,'ESummary':f8,'PDetail':f9})
-					return redirect(url_for(post,post_id))
+			already_applied = unverified.find_one({'mail':mail})
+			if already_applied:
+				_id = already_applied['_id']
+				unverified.update({'_id':_id},
+					{"$set":{'CProfile':f1,'PStrength':f2,'TProficiency':f3,'PExperience':f4,'PAchievement':f5,'ECActivities':f6,'IAHobby':f7,'ESummary':f8,'PDetail':f9}} )
+				return redirect('/newsfeed')
 			else:
-				error = "your resume is not verified.contact your admin for verification"
-				return redirect('/newsFeed')
-		else:
-			error = "log in to continue"
-			return render_template("login.html",error = error)
+				unverified.insert_one({'mail':mail,'CProfile':f1,'PStrength':f2,'TProficiency':f3,'PExperience':f4,'PAchievement':f5,'ECActivities':f6,'IAHobby':f7,'ESummary':f8,'PDetail':f9})
+				return redirect('/newsfeed')
 
-# @app.route('/unverified')
-# def unverified():
-# 	client = MongoClient()
-# 	db = client.ASP
-# 	unverified = db.unverified_resumes
+@app.route('/unverified')
+def unverified():
+	client = MongoClient()
+	db = client.ASP
+	unverified = db.unverified_resumes
 
-# 	unverified_applications = unverified.find()
-# 	return render_template('unverified.html',unverified = unverified_applications)
+	unverified_applications = unverified.find()
+	return render_template('unverified.html',unverified = unverified_applications)
 
 @app.route('/verify')
 def verify():
@@ -638,18 +637,6 @@ def verify():
 	
 if __name__=='__main__':
 	app.run(debug=True)
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
